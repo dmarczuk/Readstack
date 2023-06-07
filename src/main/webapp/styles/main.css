@@ -148,3 +148,9 @@ footer {
     margin-top: 20px;
     text-align: center;
 }
+
+/*max szerokosc kolumny 1200px i wysrodkowanie*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
