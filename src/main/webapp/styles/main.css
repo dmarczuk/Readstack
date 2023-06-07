@@ -1,0 +1,150 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/*pozbywamy się podkreśleń przy linkach*/
+a {
+    text-decoration: none;
+}
+
+/*logo po lewej, przycisk logowania po prawej*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+/*kolorowe logo*/
+.logo {
+    color: #FF3B30;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+/*efekt przycisku logowania*/
+.login-button {
+    background-color: #007AFF;
+    color: white;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+/*lekka przezroczystosc po najechaniu na przycisk*/
+.login-button:hover {
+    opacity: 80%;
+}
+
+/*usuwamy domyśle style przeglądarki i dodajemy flexboxa, kafelki mają zajmować tyle samo miejsca*/
+.categories > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* dodanie zawijania kafelkow przy wiekszej ilosci */
+}
+
+/*kafelki maja wypełniać całą przestrzeń i być lekko przezroczyste*/
+.categories > ul > li {
+    flex-grow: 1;
+    padding: 0.5rem;
+    font-weight: 500;
+    border: 2px solid;
+    color: white;
+    opacity: 0.8;
+}
+
+/*po najechaniu na kafelekt usuwamy przezroczystosc*/
+.categories > ul > li:hover {
+    opacity: 1;
+}
+
+/*wysrodkowanie tekstu na kafelkach i zmiana koloru linkow*/
+.categories > ul > li > a {
+    color: inherit;
+    display: block;
+    text-align: center;
+}
+
+/*kolor kafelkow*/
+
+/*.categories > ul >li {*/
+/*    background-color: #5856D6;*/
+/*}*/
+
+/*rozne kolorki*/
+.categories > ul > li:nth-child(3n) {
+    background-color: #FF2D55;
+}
+
+.categories > ul > li:nth-child(3n+1) {
+    background-color: #5856D6;
+}
+
+.categories > ul > li:nth-child(3n+2) {
+    background-color: #FF9500;
+}
+
+/*ramka i odstepy*/
+.discovery {
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 16px;
+}
+
+.discovery-header {
+    margin: 0;
+}
+
+/*zmiana czcionki "Dodane przez"*/
+.discovery-details {
+    color: #757575;
+    font-size: 0.8rem;
+}
+
+/*zmiana koloru odnośnika i zawijanie, gdy zbyt długie*/
+.discovery-link,
+.discovery-link:visited {
+    color: #007AFF;
+    word-wrap: break-word;
+}
+
+/*wyrownanie i wieksza czcionka*/
+.discovery-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/*zmieniamy paragraf na element liniowy*/
+.discovery-votes {
+    display: inline;
+    color: #007AFF;
+}
+
+/*nadpisanie domyslnych marginesow*/
+.discovery-bar > p {
+    margin: 0 4px;
+}
+
+/*zmiana koloru przyciskow glosowania po najechaniu*/
+.upvote:hover {
+    color: #4CD964;
+}
+
+.downvote:hover {
+    color: #FF3B30;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
