@@ -4,6 +4,7 @@ import pl.readstack.domain.category.Category;
 import pl.readstack.domain.category.CategoryDao;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CategoryService {
@@ -15,11 +16,26 @@ public class CategoryService {
                 .collect(Collectors.toList());
     }
 
+    public Optional<CategoryFullInfo> findById (int categoryId) {
+        return categoryDao.findById(categoryId)
+                .map(CategoryFullInfoMapper::map);
+    }
+
     private static class CategoryNameMapper {
         static CategoryName map (Category c) {
             return new CategoryName(
                     c.getId(),
                     c.getName()
+            );
+        }
+    }
+
+    private static class CategoryFullInfoMapper {
+        static CategoryFullInfo map(Category c) {
+            return new CategoryFullInfo(
+                    c.getId(),
+                    c.getName(),
+                    c.getDescription()
             );
         }
     }
