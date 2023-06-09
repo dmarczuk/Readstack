@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,32 +23,30 @@
 
         <aside class="categories">
             <ul>
-                <li><a href="#">Rozrywka</a></li>
-                <li><a href="#">Polityka</a></li>
-                <li><a href="#">Biznes</a></li>
+                <c:forEach var="category" items="${requestScope.categories}">
+                    <li><a href="${pageContext.request.contextPath.concat('/category?id=').concat(category.id)}">${category.name}</a></li>
+                </c:forEach>
             </ul>
         </aside>
 
         <main>
-            <article class="discovery">
-                <h2 class="discovery-header">Przykładowy tytuł</h2>
-                <p class="discovery-details">Dodane przez: Mietek, Dnia: 22/02/2016</p>
-                <a href="#" class="discovery-link">https://www.example.com</a>
-                <p>cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet</p>
-                <section class="discovery-bar">
-                    <a href="#" class="discovery-link upvote">
-                        <i class="fas fa-arrow-alt-circle-up discovery-upvote"></i>
-                    </a>
-                    <p class="discovery-votes">32</p>
-                    <a href="#" class="discovery-link downvote">
-                        <i class="fas fa-arrow-alt-circle-down discovery-downvote"></i>
-                    </a>
-                </section>
-            </article>
-
-            <article>
-
-            </article>
+            <c:forEach var="discovery" items="${requestScope.discoveries}">
+                <article class="discovery">
+                    <h2 class="discovery-header"><c:out value="${discovery.title}"/></h2>
+                    <p class="discovery-details">Dodane przez: Mietek, ${discovery.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
+                    <a href="<c:out value="${discovery.url}"/>" target="_blank" class="discovery-link"><c:out value="${discovery.url}"/></a>
+                    <p><c:out value="${discovery.description}"/></p>
+                    <section class="discovery-bar">
+                        <a href="#" class="discovery-link upvote">
+                            <i class="fas fa-arrow-alt-circle-up discovery-upvote"></i>
+                        </a>
+                        <p class="discovery-votes">32</p>
+                        <a href="#" class="discovery-link downvote">
+                            <i class="fas fa-arrow-alt-circle-down discovery-downvote"></i>
+                        </a>
+                    </section>
+                </article>
+            </c:forEach>
         </main>
 
         <footer>ReadStack ®, developed by JavaStart.pl</footer>
