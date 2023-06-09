@@ -21,7 +21,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("discoveries", discoveries);
         List<CategoryName> categories = categoryService.findAllCategoryNames();
         request.setAttribute("categories", categories);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
 
     }
 }
