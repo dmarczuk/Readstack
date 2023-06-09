@@ -1,4 +1,4 @@
-package pl.readstack;
+package pl.readstack.client;
 
 import java.io.*;
 
