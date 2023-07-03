@@ -1,9 +1,15 @@
 package pl.readstack.domain.api;
 
-public class UserRegistation {
+public class UserRegistration {
     private String username;
     private String email;
     private String password;
+
+    public UserRegistration(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;

@@ -8,17 +8,17 @@ import java.time.LocalDateTime;
 public class UserService {
     private UserDao userDao = new UserDao();
 
-    public void register(UserRegistation userRegistation) {
-        User userToSave = UserMapper.map(userRegistation);
+    public void register(UserRegistration userRegistration) {
+        User userToSave = UserMapper.map(userRegistration);
         userDao.save(userToSave);
     }
 
     private static class UserMapper {
-        static User map(UserRegistation userRegistation) {
+        static User map(UserRegistration userRegistration) {
             return new User(
-                    userRegistation.getUsername(),
-                    userRegistation.getEmail(),
-                    userRegistation.getPassword(),
+                    userRegistration.getUsername(),
+                    userRegistration.getEmail(),
+                    userRegistration.getPassword(),
                     LocalDateTime.now()
             );
         }
