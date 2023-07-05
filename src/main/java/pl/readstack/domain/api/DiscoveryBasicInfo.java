@@ -3,16 +3,22 @@ package pl.readstack.domain.api;
 import java.time.LocalDateTime;
 
 public class DiscoveryBasicInfo {
+    private Integer id;
     private String title;
     private String url;
     private String description;
     private LocalDateTime dateAdded;
 
-    public DiscoveryBasicInfo(String title, String url, String description, LocalDateTime dateAdded) {
+    public DiscoveryBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded) {
+        this.id = id;
         this.title = title;
         this.url = url;
         this.description = description;
         this.dateAdded = dateAdded;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getTitle() {
