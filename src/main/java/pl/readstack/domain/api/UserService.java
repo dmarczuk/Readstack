@@ -1,8 +1,8 @@
 package pl.readstack.domain.api;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import pl.readstack.domain.discovery.User;
-import pl.readstack.domain.discovery.UserDao;
+import pl.readstack.domain.user.User;
+import pl.readstack.domain.user.UserDao;
 
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;

@@ -1,6 +1,8 @@
-package pl.readstack.domain.discovery;
+package pl.readstack.domain.user;
 
 import pl.readstack.domain.common.BaseDao;
+import pl.readstack.domain.user.User;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.Optional;

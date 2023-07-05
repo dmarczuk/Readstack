@@ -2,7 +2,7 @@ package pl.readstack.domain.api;
 
 import pl.readstack.domain.discovery.Discovery;
 import pl.readstack.domain.discovery.DiscoveryDao;
-import pl.readstack.domain.discovery.UserDao;
+import pl.readstack.domain.user.UserDao;
 
 import java.time.LocalDateTime;
 import java.util.List;

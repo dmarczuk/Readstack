@@ -1,4 +1,4 @@
-package pl.readstack.domain.discovery;
+package pl.readstack.domain.user;
 
 import java.time.LocalDateTime;
 
