@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +12,11 @@
 <div class="container">
     <%@ include file="../segments/header.jspf" %>
 
-    <form action="${pageContext.request.contextPath}/path/add" method="post" class="discovery-form">
+    <form action="${pageContext.request.contextPath}/discovery/add" method="post" class="discovery-form">
         <h2 class="discovery-form-title">Dodaj nowe znalezisko</h2>
         <input name="title" placeholder="Tytuł" required>
         <input name="url" placeholder="URL" type="url" required>
-        <select>
+        <select name="categoryId">
             <c:forEach var="category" items="${requestScope.categories}">
                 <option value="${category.id}">${category.name}</option>
             </c:forEach>
