@@ -11,7 +11,7 @@
             <a href="${pageContext.request.contextPath.concat('/discovery/vote?id=').concat(discovery.id).concat('&type=UP')}" class="discovery-link upvote">
                 <i class="fas fa-arrow-alt-circle-up discovery-upvote"></i>
             </a>
-            <p class="discovery-votes">32</p>
+            <p class="discovery-votes">${discovery.voteCount}</p>
             <a href="${pageContext.request.contextPath.concat('/discovery/vote?id=').concat(discovery.id).concat('&type=DOWN')}" class="discovery-link downvote">
                 <i class="fas fa-arrow-alt-circle-down discovery-downvote"></i>
             </a>
