@@ -4,6 +4,7 @@ import pl.readstack.domain.common.BaseDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -30,4 +31,26 @@ public class VoteDao extends BaseDao {
             throw new RuntimeException(e);
         }
     }
+
+    public int countByDiscoveryId (int discoveryId) {
+        final String query = """
+                SELECT
+                    (SELECT COUNT(discovery_id) FROM vote WHERE discovery_id = ? AND type = 'UP')
+                    -
+                    (SELECT COUNT(discovery_id) FROM vote WHERE discovery_id = ? AND type = 'DOWN')
+                    AS
+                    vote_count
+                """;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, discoveryId);
+            statement.setInt(2, discoveryId);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("vote_count");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
