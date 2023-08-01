@@ -3,6 +3,7 @@ package pl.readstack.domain.api;
 import pl.readstack.domain.discovery.Discovery;
 import pl.readstack.domain.discovery.DiscoveryDao;
 import pl.readstack.domain.user.UserDao;
+import pl.readstack.domain.vote.VoteDao;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,26 +20,27 @@ public class DiscoveryService {
 
     public List<DiscoveryBasicInfo> findAll() {
         return discoveryDao.findAll()
-                .stream().map(DiscoveryMapper::map)
+                .stream().map(discoveryMapper::map)
                 .collect(Collectors.toList());
     }
 
     public List<DiscoveryBasicInfo> findByCategory(int categoryId) {
         return discoveryDao.findByCategory(categoryId)
-                .stream().map(DiscoveryMapper::map)
+                .stream().map(discoveryMapper::map)
                 .collect(Collectors.toList());
     }
 
     private static class DiscoveryMapper {
         private final UserDao userDao = new UserDao();
-        static DiscoveryBasicInfo map (Discovery d) {
+        private final VoteDao voteDao = new VoteDao();
+         DiscoveryBasicInfo map(Discovery d) {
             return new DiscoveryBasicInfo(
                     d.getId(),
                     d.getTitle(),
                     d.getUrl(),
                     d.getDescription(),
-                    d.getDateAdded()
-            );
+                    d.getDateAdded(),
+                    voteDao.countByDiscoveryId(d.getId()));
         }
 
         Discovery map (DiscoverySaveRequest ds) {
