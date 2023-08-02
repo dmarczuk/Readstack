@@ -9,18 +9,16 @@ public class DiscoveryBasicInfo {
     private String description;
     private LocalDateTime dateAdded;
     private int voteCount;
+    private String author;
 
-    public DiscoveryBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded, int voteCount) {
+    public DiscoveryBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded, int voteCount, String author) {
         this.id = id;
         this.title = title;
         this.url = url;
         this.description = description;
         this.dateAdded = dateAdded;
         this.voteCount = voteCount;
-    }
-
-    public int getVoteCount() {
-        return voteCount;
+        this.author = author;
     }
 
     public Integer getId() {
@@ -42,4 +40,7 @@ public class DiscoveryBasicInfo {
     public LocalDateTime getDateAdded() {
         return dateAdded;
     }
+
+    public int getVoteCount() { return voteCount; }
+    public String getAuthor() { return author; }
 }

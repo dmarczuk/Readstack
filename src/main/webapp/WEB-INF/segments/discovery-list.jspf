@@ -4,7 +4,7 @@
 <c:forEach var="discovery" items="${requestScope.discoveries}">
     <article class="discovery">
         <h2 class="discovery-header"><c:out value="${discovery.title}"/></h2>
-        <p class="discovery-details">Dodane przez: Mietek, ${discovery.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
+        <p class="discovery-details">Dodane przez: ${discovery.author}, ${discovery.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
         <a href="<c:out value="${discovery.url}"/>" target="_blank" class="discovery-link"><c:out value="${discovery.url}"/></a>
         <p><c:out value="${discovery.description}"/></p>
         <section class="discovery-bar">
