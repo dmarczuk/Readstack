@@ -135,6 +135,20 @@ a {
     margin: 0 4px;
 }
 
+.discovery-add-button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 40px;
+    background-color:#4CD964;
+    color: #FFF;
+    box-shadow: 2px 2px 3px #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /*zmiana koloru przyciskow glosowania po najechaniu*/
 .upvote:hover {
     color: #4CD964;

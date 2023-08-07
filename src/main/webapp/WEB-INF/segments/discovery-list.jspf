@@ -18,3 +18,6 @@
         </section>
     </article>
 </c:forEach>
+<a href="${pageContext.request.contextPath}/discovery/add" class="discovery-add-button">
+    <i class="fa fa-plus"></i>
+</a>
