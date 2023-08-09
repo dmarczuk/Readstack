@@ -27,7 +27,12 @@ public class DiscoveryVoteController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         DiscoveryVote discoveryVote = createDiscoveryVote(request);
         voteService.addVote(discoveryVote);
-        response.sendRedirect(request.getContextPath() + "/category?id=" + request.getParameter("idCat")); //how get id category?
+        String categoryParameter = request.getParameter("idCat");
+        if (categoryParameter != "") {
+            response.sendRedirect(request.getContextPath() + "/category?id=" + categoryParameter);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/");
+        }
     }
 
     private DiscoveryVote createDiscoveryVote(HttpServletRequest request) {
