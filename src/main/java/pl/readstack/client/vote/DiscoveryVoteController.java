@@ -11,6 +11,8 @@ import pl.readstack.domain.api.DiscoveryVote;
 import pl.readstack.domain.api.DiscoveryVoteService;
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.*;
 
 @WebServlet("/discovery/vote")
 @ServletSecurity(
@@ -25,7 +27,7 @@ public class DiscoveryVoteController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         DiscoveryVote discoveryVote = createDiscoveryVote(request);
         voteService.addVote(discoveryVote);
-        response.sendRedirect(request.getContextPath() + "/");
+        response.sendRedirect(request.getContextPath() + "/category?id=" + request.getParameter("idCat")); //how get id category?
     }
 
     private DiscoveryVote createDiscoveryVote(HttpServletRequest request) {
