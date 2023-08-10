@@ -1,12 +1,12 @@
 # Readstack
 
 ## General info
-# Project from course "Technologie Webowe" on javastart.pl
-# It's Web Service similar to reddit.com with simple functionalities
+Project from course "Technologie Webowe" on javastart.pl</br>
+It's Web Service similar to reddit.com with simple functionalities</br>
 
 ## Technologies
-# Java
-# Git
-# MySQL
-# HTML+CSS
-# Jakarta EE
+Java</br>
+Git</br>
+MySQL</br>
+HTML+CSS</br>
+Jakarta EE</br>
